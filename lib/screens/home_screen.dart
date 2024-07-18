@@ -1,4 +1,5 @@
 // screens/home_screen.dart
+import 'package:calculators_app/utils/constant/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            Image.asset('assets/logo.png', height: 40), // Example logo
+            Image.asset('assets/icon.png', height: 40), // Example logo
             const SizedBox(width: 10),
             const Text(
               'Calculator App',
@@ -27,7 +28,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Select a Calculator',
+              'Popular Calculator',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20), // Space between the title and the grid
@@ -67,4 +68,4 @@ class CalculatorCard extends StatelessWidget {
       ),
     );
   }
-}
+}             

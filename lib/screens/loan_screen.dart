@@ -18,13 +18,16 @@ class LoanScreen extends StatelessWidget {
           children: [
             const Text(
               'Loan Amount',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Obx(() => Text(
                   loanController.loanModel.value.principal.toStringAsFixed(2),
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style:  TextStyle(
+                    backgroundColor: Colors.blue[100],
+                    fontSize: 24, fontWeight: FontWeight.bold),
                 )),
-            Obx(() => Slider(
+                const SizedBox(height: 20),
+            Obx(() => Slider(activeColor: Colors.blueAccent,
               value: loanController.loanModel.value.principal,
               min: 10000,
               max: 1000000,
@@ -36,16 +39,25 @@ class LoanScreen extends StatelessWidget {
                 });
               },
             )),
-            const SizedBox(height: 20),
-            const Text(
-              'Rate of Interest (p.a)',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            Obx(() => Text(
-                  loanController.loanModel.value.rate.toStringAsFixed(2) + '%',
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            const SizedBox(height: 60),
+            Row(
+              children: [
+                const Text(
+                  'Rate of Interest (p.a)',
+                  style: TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(width: 100,),
+                Obx(() => Text(
+                  '${loanController.loanModel.value.rate.toStringAsFixed(2)}%',
+                  style: const TextStyle(
+                    fontSize: 24, fontWeight: FontWeight.bold),
                 )),
-            Obx(() => Slider(
+              ],
+            ),
+            const SizedBox(height: 20),
+            
+            Obx(() => Slider(activeColor: Colors.blueAccent,
               value: loanController.loanModel.value.rate,
               min: 1,
               max: 20,
@@ -57,16 +69,21 @@ class LoanScreen extends StatelessWidget {
                 });
               },
             )),
-            const SizedBox(height: 20),
-            const Text(
-              'Loan Tenure (years)',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            Obx(() => Text(
+            const SizedBox(height: 60),
+             Row(
+              children: [
+                const Text(
+                  'Loan Tenure (yrs)',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(width: 130,),
+                Obx(() => Text(
                   loanController.loanModel.value.term.toString(),
                   style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                )),
-            Obx(() => Slider(
+                ))
+              ],
+            ),
+             Obx(() => Slider(activeColor: Colors.blueAccent,
               value: loanController.loanModel.value.term.toDouble(),
               min: 1,
               max: 30,
@@ -88,15 +105,15 @@ class LoanScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Monthly EMI: ${loanController.loanModel.value.emi.toStringAsFixed(2)}',
+                      'Monthly EMI:               ${loanController.loanModel.value.emi.toStringAsFixed(2)}',
                       style: const TextStyle(fontSize: 24),
                     ),
                     Text(
-                      'Total Interest: ${loanController.loanModel.value.totalInterest.toStringAsFixed(2)}',
+                      'Total Interest:             ${loanController.loanModel.value.totalInterest.toStringAsFixed(2)}',
                       style: const TextStyle(fontSize: 24),
                     ),
                     Text(
-                      'Total Amount: ${loanController.loanModel.value.totalAmount.toStringAsFixed(2)}',
+                      'Total Amount:             ${loanController.loanModel.value.totalAmount.toStringAsFixed(2)}',
                       style: const TextStyle(fontSize: 24),
                     ),
                   ],
