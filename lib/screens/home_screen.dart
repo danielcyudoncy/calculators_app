@@ -9,13 +9,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Calculator App')),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: const [
-          CalculatorCard(title: 'BMI Calculator', route: '/bmi'),
-          CalculatorCard(title: 'EMI Calculator', route: '/emi'),
-          // Add other calculator cards.
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: GridView.count(
+          crossAxisCount: 3,
+          children: const [
+            CalculatorCard(title: 'BMI Calculator', route: '/bmi'),
+            CalculatorCard(title: 'EMI Calculator', route: '/emi'),
+            // Add other calculator cards.
+          ],
+        ),
       ),
     );
   }
