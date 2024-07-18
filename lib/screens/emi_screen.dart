@@ -1,5 +1,5 @@
 // screens/emi_screen.dart
-import 'package:calculator_application/controllers/emi_controller.dart';
+import 'package:calculators_app/controllers/emi_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
