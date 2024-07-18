@@ -4,5 +4,7 @@ class BMIModel {
   double weight;
   double bmi;
 
-  BMIModel({required this.height, required this.weight, this.bmi = 0.0});
+  BMIModel({
+    required this.height, 
+    required this.weight, this.bmi = 0.0});
 }
