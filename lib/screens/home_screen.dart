@@ -8,15 +8,41 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Calculator App')),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Image.asset('assets/logo.png', height: 40), // Example logo
+            const SizedBox(width: 10),
+            const Text(
+              'Calculator App',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        centerTitle: false,
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: GridView.count(
-          crossAxisCount: 3,
-          children: const [
-            CalculatorCard(title: 'BMI Calculator', route: '/bmi'),
-            CalculatorCard(title: 'EMI Calculator', route: '/emi'),
-            // Add other calculator cards.
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Select a Calculator',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20), // Space between the title and the grid
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 2,
+                children: const [
+                  CalculatorCard(title: 'BMI Calculator', route: '/bmi'),
+                  CalculatorCard(title: 'EMI Calculator', route: '/emi'),
+                  CalculatorCard(title: 'Loan Calculator', route: '/loan'),
+                  CalculatorCard(title: 'Income Tax Calculator', route: '/income_tax'),
+                  // Add other calculator cards here.
+                ],
+              ),
+            ),
           ],
         ),
       ),
