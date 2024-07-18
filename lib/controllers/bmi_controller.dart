@@ -1,6 +1,8 @@
-// controllers/bmi_controller.dart
-import 'package:calculators_app/models/bmi_model.dart';
+
+
 import 'package:get/get.dart';
+
+import '../models/bmi_model.dart';
 
 class BMIController extends GetxController {
   var bmiModel = BMIModel(height: 0.0, weight: 0.0).obs;

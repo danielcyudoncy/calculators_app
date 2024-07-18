@@ -1,6 +1,8 @@
-import 'package:calculators_app/homepage.dart';
+// myApp.dart
+import 'package:calculators_app/routes/route_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +13,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'calculators',
       theme: ThemeData(),
-      home: const Homepage(),
+      initialRoute: '/',
+      getPages: RouteController.to.getPages(),
     );
   }
 }

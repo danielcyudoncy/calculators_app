@@ -1,7 +1,10 @@
-// controllers/emi_controller.dart
-import 'package:calculators_app/models/emi_model.dart';
-import 'package:get/get.dart';
+
+
 import 'dart:math';
+
+import 'package:get/get.dart';
+
+import '../models/emi_model.dart';
 
 class EMIController extends GetxController {
   var emiModel = EMIModel(principal: 0.0, rate: 0.0, term: 0).obs;
