@@ -1,4 +1,3 @@
-// screens/splash_screen.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:calculators_app/controllers/splash_controller.dart';
@@ -10,19 +9,24 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlutterLogo(size: 200,),
-            SizedBox(height: 20),
-            Text(
+            
+            Image.asset(
+              'assets/icon.png',  
+              width: 300,
+              height: 300,  
+            ),
+            const SizedBox(height: 20),
+            const Text(
               'Calculator App',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            CircularProgressIndicator(),
+            const SizedBox(height: 20),
+            const CircularProgressIndicator(),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
-// screens/income_tax_screen.dart
+
 import 'package:calculators_app/controllers/income_tax_controller.dart';
+import 'package:calculators_app/utils/constant/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,8 +11,20 @@ class IncomeTaxScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Income Tax Calculator')),
+    return Scaffold(backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            Image.asset('assets/icon.png', height: 50), 
+            const SizedBox(width: 10),
+            const Text(
+              'Tax Income Calculator',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        centerTitle: false,),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -30,8 +43,16 @@ class IncomeTaxScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                    elevation: 0, 
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8))
+                    ),
+                    backgroundColor: const Color.fromARGB(170, 56, 197, 192), 
+                  ),
               onPressed: incomeTaxController.calculateTax,
-              child: const Text('Calculate Tax'),
+              child: const Text('Calculate Tax',
+              style: TextStyle(fontSize: AppSizes.fontSizeMd, color: Colors.white),),
             ),
             const SizedBox(height: 20),
             Obx(() => Text(

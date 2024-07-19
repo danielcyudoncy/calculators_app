@@ -4,8 +4,8 @@ import 'package:calculators_app/utils/theme/custorm_theme/texttheme.dart';
 import 'package:flutter/material.dart';
 
 
-class QuizzTaleTheme {
-  QuizzTaleTheme._();
+class CalculatorTheme {
+  CalculatorTheme._();
   static ThemeData lightTheme = ThemeData(
       useMaterial3: true,
       fontFamily: 'Poppins',

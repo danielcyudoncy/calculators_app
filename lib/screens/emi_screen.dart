@@ -1,5 +1,6 @@
-// screens/emi_screen.dart
+
 import 'package:calculators_app/controllers/emi_controller.dart';
+import 'package:calculators_app/utils/constant/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,8 +11,19 @@ class EMIScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('EMI Calculator')),
+    return Scaffold(backgroundColor: Colors.white,
+      appBar: AppBar(backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            Image.asset('assets/icon.png', height: 50), 
+            const SizedBox(width: 10),
+            const Text(
+              'EMI Calculator',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        centerTitle: false,),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -36,8 +48,16 @@ class EMIScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                    elevation: 0, 
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8))
+                    ),
+                    backgroundColor: const Color.fromARGB(170, 56, 197, 192), 
+                  ),
               onPressed: emiController.calculateEMI,
-              child: const Text('Calculate EMI'),
+              child: const Text('Calculate EMI',
+              style: TextStyle(fontSize: AppSizes.fontSizeMd, color: Colors.white),),
             ),
             const SizedBox(height: 20),
             Obx(() => Text(

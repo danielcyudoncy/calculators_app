@@ -1,18 +1,17 @@
-// screens/home_screen.dart
-import 'package:calculators_app/utils/constant/sizes.dart';
+import 'package:calculators_app/utils/widgets/calculator_card.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return Scaffold(backgroundColor: Colors.white,
+      appBar: AppBar(backgroundColor: Colors.white,
         title: Row(
           children: [
-            Image.asset('assets/icon.png', height: 40), // Example logo
+            Image.asset('assets/icon.png', height: 50), 
             const SizedBox(width: 10),
             const Text(
               'Calculator App',
@@ -31,16 +30,16 @@ class HomeScreen extends StatelessWidget {
               'Popular Calculator',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20), // Space between the title and the grid
+            const SizedBox(height: 20), 
             Expanded(
               child: GridView.count(
-                crossAxisCount: 2,
+                crossAxisCount: 3,
                 children: const [
-                  CalculatorCard(title: 'BMI Calculator', route: '/bmi'),
-                  CalculatorCard(title: 'EMI Calculator', route: '/emi'),
-                  CalculatorCard(title: 'Loan Calculator', route: '/loan'),
-                  CalculatorCard(title: 'Income Tax Calculator', route: '/income_tax'),
-                  // Add other calculator cards here.
+                  CalculatorCard(title: 'BMI Calculator', route: '/bmi', icon: Icons.fitness_center),
+                  CalculatorCard(title: 'EMI Calculator', route: '/emi', icon: Icons.monetization_on),
+                  CalculatorCard(title: 'Loan Calculator', route: '/loan', icon: Icons.attach_money),
+                  CalculatorCard(title: 'Income Tax\n Calculator', route: '/income_tax', icon: Icons.account_balance),
+                  
                 ],
               ),
             ),
@@ -50,22 +49,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-class CalculatorCard extends StatelessWidget {
-  final String title;
-  final String route;
-
-  const CalculatorCard({super.key, required this.title, required this.route});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: InkWell(
-        onTap: () {
-          Get.toNamed(route);
-        },
-        child: Center(child: Text(title)),
-      ),
-    );
-  }
-}             
